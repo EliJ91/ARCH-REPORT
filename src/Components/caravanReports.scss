@@ -1,0 +1,133 @@
+.caravanReportsContainer{
+    width: fit-content;
+    height: 90vh;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    & .offenceCount{
+        width: 200px;
+        float: left;
+        border-radius: 10px;
+        text-align: center;
+        color: white;
+    }
+
+    & .searchContainers{
+        float: right;
+
+        & .searchInput{
+            margin: 10px;
+        }
+    }
+
+    & .reportContainer{
+        & .reportCardContainer{
+            & .title{
+                margin: 10px;
+                display: grid;
+                grid-template-columns: repeat(7, 225px);
+                border-radius: 10px;
+                width: max-content;
+                & p{
+                    margin: 10px;
+                    color: white;
+                    width: max-content;
+                    padding: 10px;
+                    font-weight: bold;
+                    letter-spacing: 10px;
+                    justify-self: center;
+
+                }
+            }
+            
+            & .reportCard{
+                margin: 10px;
+                background-color: rgb(16, 16, 16);
+                border-radius: 10px;
+                display: grid;
+                grid-template-columns: repeat(7, 225px) 50px;
+                border: 1px solid white;
+                align-items: center;
+                & p{
+                    color: white;
+                    padding: 10px;
+                    width: max-content;
+                    justify-self: center;
+                    &.dateContainer{
+                        display: flex;
+                    }
+                }
+                & .evidenceImageIcon{
+                    width: 25px;
+                    justify-self: center;
+                    cursor: pointer;
+                    &:active{
+                        transform: scale(.8);
+                    }
+                }
+            }
+        }
+    }
+}
+.Button{
+    display: flex;
+    & button{
+        display: block;
+        border: 1px solid grey;
+        background-color: green;
+        margin-left: 30px;
+        max-height: 20px;
+        font-weight: bold;
+        margin-top: 8px;
+        letter-spacing: 3px;
+        &.hide{
+            display: none;
+        }
+    }
+    & input{
+        color: white;
+        padding: 10px;
+        margin-left: 50px;
+        width: fit-content;
+        max-width: 100px;
+        justify-self: center;
+        background-color: rgb(16, 16, 16);
+        border: none;
+        text-align: center;
+        color: white;
+        outline: none;
+        &::placeholder {
+            color: white;
+        }
+    }
+}
+
+.paidButton{
+    width: fit-content;
+    justify-self: center;
+    cursor: pointer;
+    color: black;
+    letter-spacing: 3px;
+    font-weight: bold;
+        &:active{
+            transform: scale(.8);
+        }
+        & .paid{
+            background-color: green;
+            border-radius: 10px;
+            outline: none;
+        }
+        & .unpaid{
+            background-color: red;
+            border-radius: 10px;
+            outline: none;
+        }
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
