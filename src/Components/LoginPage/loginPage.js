@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
 function Login() {
 
-    const{setUsername,setPassword,setPassword2,setNewAccount,login,createAccount,newAccount,username,password,password2,} = useLogin()
+    const{setUsername,setPassword,setPassword2,setNewAccount,login,createAccount,newAccount,username,password,password2,theUser} = useLogin()
 
   return (
     <div className="loginMainContainer">
@@ -19,8 +19,9 @@ function Login() {
                     <button className="createSubmit"  onClick={()=> createAccount(username,password,password2)}>Create Account</button>
                     </>
                     }
-                    {!newAccount && <button className="loginSubmit"  onClick={()=> login(username,password)}>Log In</button> }
+                    {!newAccount && <button className="loginSubmit"  onClick={()=>login(username,password)}>Log In</button> }
                     <p onClick={()=>setNewAccount(!newAccount)}className="needAnAccount">{newAccount? "Already have an account?":"Need an account?"}</p>
+                    <p className="needAnAccount">|{theUser}|</p>
                 </div>
     </div>
   );

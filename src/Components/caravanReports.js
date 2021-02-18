@@ -7,8 +7,7 @@ import PaidButton from './PaidButtonComponent/paidButton'
 import Notes from './NotesComponent/notesComponent'
 
 function CaravanReports() {
-    let searchQuery = 1
-    const {array,setPlayerSearch,setGuildSearch,updatePaid,updateFine,updateNotes} = useCaravanReports(searchQuery)
+    const {array,setPlayerSearch,setGuildSearch,updatePaid,updateFine,updateNotes} = useCaravanReports()
 
     return (
     <>

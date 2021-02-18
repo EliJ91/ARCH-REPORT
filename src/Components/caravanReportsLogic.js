@@ -1,7 +1,7 @@
 import axios from 'axios'
 import {useState, useEffect} from 'react'
 
-const useCaravanReports = ({id}) => {
+const useCaravanReports = () => {
     const [reports, setReports] = useState([])
 
     const [playerSearch, setPlayerSearch] = useState()
