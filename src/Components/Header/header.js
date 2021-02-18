@@ -1,13 +1,17 @@
 import useHeader from './headerLogic'
 import './header.scss'
 
-function Header() {
-
-    const{user} = useHeader()
-
+function Header(props) {
+    const{logout} = useHeader(props)
   return (
+
     <div className="headerContainer">
-        <p className="userLogged">Logged in a {user}</p>
+      {props.theUser&&
+      <>
+        <p className="userLogged">Logged in as {props.theUser}</p>
+        <button onClick={()=>logout()}>Log Out</button>
+        </>
+      }
     </div>
   );
 }

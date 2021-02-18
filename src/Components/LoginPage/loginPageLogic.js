@@ -5,12 +5,11 @@ import { useHistory } from "react-router-dom";
 import {useState, useEffect} from 'react'
 
 
-const useLogin = () => {
+const useLogin = ({setUser}) => {
   const [username, setUsername] =useState("")
   const [password, setPassword] =useState("")
   const [password2, setPassword2] =useState("")
   const [newAccount,setNewAccount] = useState(false)
-  const [theUser,setUser] = useState("")
   let history = useHistory();
 
   function createAccount(username, password, password2){
@@ -36,8 +35,14 @@ const useLogin = () => {
         setUsername("")
         setPassword("")
         setPassword2("")
+        setUser(response.data.username)
+        if(!response.data.approved){
+          history.push('/forbidden')
+        }else{
+          history.push('/caravanreports')
+        }
       }
-    }) 
+    })
     .catch(function (error) {
       console.log({error});
       if(error.response.status === 422){alert("Username already in use.")}
@@ -46,7 +51,6 @@ const useLogin = () => {
 
   //==============================================================================================================================//
    function login(username, password){
-    console.log("Function login called")
       if(password === ""){
         alert("Password cannot be blank")
         return
@@ -55,28 +59,29 @@ const useLogin = () => {
         alert("Username cannot be blank")
         return
       }
-    console.log("Next line is axios call")
+
     axios.post(process.env.REACT_APP_API_PREFIX+"/api/user/login",
       {
         username,
         password
       },{withCredentials: true})
       .then(function (response) {
-        console.log(response)
         setUser(response.data.username)
-        if(response.status === 201){
-          console.log("logged in")
+        if(!response.data.approved){
+          history.push('/forbidden')
+        }else{
+          history.push('/caravanreports')
         }
-      }) 
+
+      })
       .catch(function (error) {
-        // if(error.response.status === 401){alert("Password is incorrect.")}
-        // if(error.response.status === 422){alert("Username does not exist.")}
+        if(error.response.status === 401){alert("Password is incorrect.")}
+        if(error.response.status === 422){alert("Username does not exist.")}
         console.log(error);
       })
     }
 
-
-    return {username,setUsername,setPassword,setPassword2,createAccount,login,newAccount,password,password2,setNewAccount,theUser}
+    return {username,setUsername,setPassword,setPassword2,createAccount,login,newAccount,password,password2,setNewAccount}
 }
 
 export default useLogin;

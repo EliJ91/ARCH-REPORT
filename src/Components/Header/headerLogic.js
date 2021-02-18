@@ -1,29 +1,43 @@
 
 
 import axios from 'axios'
-import { useHistory } from "react-router-dom";
-import {useState, useEffect} from 'react'
+import {useHistory} from "react-router-dom";
+import {useEffect} from 'react'
 
 
-const useHeader = () => {
+const useHeader = ({setUser}) => {
     let history = useHistory();
-    const [user, setUser] = useState("")
- 
+
+
+    function logout(){
+        setUser("")
+        axios.post(process.env.REACT_APP_API_PREFIX+"/api/user/logout",{},{withCredentials: true})
+        history.push('/')
+    }
+
 
     useEffect(()=>{
-      async function fetchData(){
-          const user = await axios.get(process.env.REACT_APP_API_PREFIX+"/api/user/stayLogged", {withCredentials: true}) 
-          if(!user){
-              console.log("Not logged in.")
-          }    
-          setUser(user.data.username) 
-          history.push('/caravanreports')
-      }
-      fetchData() 
-                           
-  },[])
+        async function fetchData(){
+            await axios.post(process.env.REACT_APP_API_PREFIX+"/api/user/stayLogged",{}, {withCredentials: true})
+            .then(function (response){
+                if(!response.data.approved){
+                setUser(response.data.username)
+                history.push('/forbidden')
+                }else{
+                setUser(response.data.username)
+                history.push('/caravanreports')
+                }
+            }).catch(function (error) {
+                console.log(error);
+                history.push('/')
+            }
+        )}
+    fetchData()
+    },[])
 
-    return {user}
+
+
+    return {logout}
 }
 
 export default useHeader;

@@ -1,10 +1,9 @@
 import './loginPage.scss'
 import useLogin from  './loginPageLogic'
-import {Link} from 'react-router-dom'
 
-function Login() {
+function Login(props) {
 
-    const{setUsername,setPassword,setPassword2,setNewAccount,login,createAccount,newAccount,username,password,password2,theUser} = useLogin()
+    const{setUsername,setPassword,setPassword2,setNewAccount,login,createAccount,newAccount,username,password,password2} = useLogin(props)
 
   return (
     <div className="loginMainContainer">
@@ -13,7 +12,7 @@ function Login() {
 
                     <input className="loginPassword" placeholder="Password" type="password" value={password}  onChange={(e)=>{setPassword(e.target.value)}}/>
 
-                    {newAccount && 
+                    {newAccount &&
                     <>
                     <input className="loginPassword" placeholder="Password" type="password" value={password2} onChange={(e)=>{setPassword2(e.target.value)}}/>
                     <button className="createSubmit"  onClick={()=> createAccount(username,password,password2)}>Create Account</button>
@@ -21,7 +20,6 @@ function Login() {
                     }
                     {!newAccount && <button className="loginSubmit"  onClick={()=>login(username,password)}>Log In</button> }
                     <p onClick={()=>setNewAccount(!newAccount)}className="needAnAccount">{newAccount? "Already have an account?":"Need an account?"}</p>
-                    <p className="needAnAccount">|{theUser}|</p>
                 </div>
     </div>
   );

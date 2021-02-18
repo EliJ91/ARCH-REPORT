@@ -1,6 +1,6 @@
 import useCaravanReports from './caravanReportsLogic'
 import './caravanReports.scss'
-import React,{useState} from 'react'
+import React from 'react'
 import SaveButton from './ButtonComponent/saveButton'
 import Evidence from './EvidenceComponent/evidenceComponent'
 import PaidButton from './PaidButtonComponent/paidButton'
@@ -24,12 +24,12 @@ function CaravanReports() {
             </div>
                 {array.sort(function(a,b) { return parseFloat(a.date) - parseFloat(b.date) } ).map((report)=>(
                     <div className="reportCardContainer">
-                        <div className="reportCard"> 
-                          <p>{report.username}</p> 
-                          <p>{report.guild}</p> 
-                          <p>{report.type}</p> 
-                          <Evidence URL={report.image} /> 
-                          <SaveButton  fine={report.fine} id={report._id} update={updateFine}/> 
+                        <div className="reportCard">
+                          <p>{report.username}</p>
+                          <p>{report.guild}</p>
+                          <p>{report.type}</p>
+                          <Evidence URL={report.image} />
+                          <SaveButton  fine={report.fine} id={report._id} update={updateFine}/>
                           <PaidButton paid={report.paid} id={report._id} update={updatePaid}/>
                           <p className="dateContainer"> {new Date(report.date).toLocaleDateString("en-US")}</p>
                           <Notes notes={report.notes} id={report._id} update={updateNotes}/>
@@ -41,6 +41,5 @@ function CaravanReports() {
     </>
     );
   }
-  
+
   export default CaravanReports;
-  
