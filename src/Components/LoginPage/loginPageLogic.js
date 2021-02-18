@@ -28,7 +28,7 @@ const useLogin = () => {
       console.log("Passwords cannot be blank")
       return
     }
-    console.log("hitting api")
+    console.log(process.env)
     axios.post(process.env.REACT_APP_API_PREFIX+"/api/user/create",
     {
       username,
@@ -41,11 +41,12 @@ const useLogin = () => {
         setPassword2("")
         
       }
-      console.log(response);
+      console.log(response); 
     }) 
-    .catch(function (error) {
-      if(error.response.status === 422){alert("Username already in use.")}
-      console.log("ERROR",error);
+    .catch(function (res) {
+      console.log("ERROR",res);
+      //if(error.response.status === 422){alert("Username already in use.")}
+      
 
     });
   }
