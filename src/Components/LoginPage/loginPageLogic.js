@@ -10,6 +10,7 @@ const useLogin = ({setUser}) => {
   const [password, setPassword] =useState("")
   const [password2, setPassword2] =useState("")
   const [newAccount,setNewAccount] = useState(false)
+  const [load,setLoad] = useState(false)
   let history = useHistory();
 
   function createAccount(username, password, password2){
@@ -59,7 +60,7 @@ const useLogin = ({setUser}) => {
         alert("Username cannot be blank")
         return
       }
-
+      setLoad(true)
     axios.post(process.env.REACT_APP_API_PREFIX+"/api/user/login",
       {
         username,
@@ -75,13 +76,18 @@ const useLogin = ({setUser}) => {
 
       })
       .catch(function (error) {
-        if(error.response.status === 401){alert("Password is incorrect.")}
-        if(error.response.status === 422){alert("Username does not exist.")}
+        setLoad(false)
+        if(error.response !== undefined){
+          if(error.response.status === 401){alert("Password is incorrect.")}
+          if(error.response.status === 422){alert("Username does not exist.")}
+        }else{
+          alert("Server is currently Offline. Please contact Onslawht.")
+        }
         console.log(error);
       })
     }
 
-    return {username,setUsername,setPassword,setPassword2,createAccount,login,newAccount,password,password2,setNewAccount}
+    return {username,setUsername,setPassword,setPassword2,createAccount,login,newAccount,password,password2,setNewAccount,load}
 }
 
 export default useLogin;

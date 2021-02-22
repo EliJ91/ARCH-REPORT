@@ -13,10 +13,38 @@
     }
 
     & .searchContainers{
-        float: right;
+        display: flex;
 
-        & .searchInput{
-            margin: 10px;
+        & .caravanReportsSearchQueries{
+            margin-left: auto;
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            margin-right: 20px;
+
+            & .ascendingIcon{
+                color: white;
+                margin-left: 5px;
+                padding: 3px;
+                background-color: grey;
+                border: 1px solid black;
+                border-radius: 5px;
+                cursor: pointer;
+
+                &:active{
+                    transform: scale(.9);
+                }
+            }
+
+            & .searchInput{
+                margin: 10px;
+                height: min-content;
+                background-color: none;
+            }
+
+            & .caravanReportsSort{
+                height: min-content;
+            }
         }
     }
 
@@ -25,7 +53,7 @@
             & .title{
                 margin: 10px;
                 display: grid;
-                grid-template-columns: repeat(7, 225px);
+                grid-template-columns: repeat(7, 225px) 50px;
                 border-radius: 10px;
                 width: max-content;
                 & p{
@@ -39,7 +67,7 @@
 
                 }
             }
-            
+
             & .reportCard{
                 margin: 10px;
                 background-color: rgb(16, 16, 16);
@@ -123,11 +151,18 @@
             outline: none;
         }
 }
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    margin: 0; 
+    margin: 0;
 }
 
+@media screen and (max-width: 600px) {
+    .reportCardContainer {
+      & .reportCard{
+
+      }
+    }
+  }

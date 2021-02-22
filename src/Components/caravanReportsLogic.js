@@ -6,6 +6,8 @@ const useCaravanReports = () => {
 
     const [playerSearch, setPlayerSearch] = useState()
     const [guildSearch, setGuildSearch] = useState()
+    const [ascending, setAscending] = useState(false)
+    const [sort, setSort] = useState("date")
 
     let playerArray = playerSearch ? reports.filter((report) => report.username.toUpperCase().includes(playerSearch.toUpperCase())) : reports
     let guildArray = guildSearch ? reports.filter((report) => report.guild.toUpperCase().includes(guildSearch.toUpperCase())) : reports
@@ -60,9 +62,13 @@ const useCaravanReports = () => {
 
 
 
+    const sortSpecific = ascending ? (propName) => (a, b) => a[propName] == b[propName] ? 0 : a[propName] < b[propName] ? -1 : 1 : (propName) => (a, b) => a[propName] == b[propName] ? 0 : a[propName] < b[propName] ? 1 : -1
 
 
-    return {array,setPlayerSearch,setGuildSearch,playerSearch,updatePaid,updateFine,updateNotes}
+
+
+
+    return {array,setPlayerSearch,setGuildSearch,playerSearch,updatePaid,updateFine,updateNotes,sortSpecific,sort,setSort,ascending,setAscending}
 }
 
 export default useCaravanReports;

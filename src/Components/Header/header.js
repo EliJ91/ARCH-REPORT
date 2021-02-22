@@ -4,15 +4,14 @@ import './header.scss'
 function Header(props) {
     const{logout} = useHeader(props)
   return (
+    <>
+    {props.theUser &&
+      <div className="headerContainer">
+          <p className="userLogged" onClick={()=>logout()} title="Log Out">Welcome, {props.theUser}</p>
+      </div>
+    }
+    </>
 
-    <div className="headerContainer">
-      {props.theUser&&
-      <>
-        <p className="userLogged">Logged in as {props.theUser}</p>
-        <button onClick={()=>logout()}>Log Out</button>
-        </>
-      }
-    </div>
   );
 }
 

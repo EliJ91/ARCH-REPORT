@@ -1,6 +1,14 @@
 .headerContainer{
-    width: 100%;
+    display: flex;
+    margin-right: 7vw;
     & .userLogged{
+        margin-left: auto;
         color: white;
+        height: min-content;
+        align-self: center;
+        cursor: pointer;
+        font-size: 20px;
+        letter-spacing: 5px;
+        font-weight: bold;
     }
 }
