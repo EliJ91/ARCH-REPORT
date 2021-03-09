@@ -49,13 +49,14 @@
     }
 
     & .reportContainer{
-        & .reportCardContainer{
+        & .reportCardTitles{
             & .title{
                 margin: 10px;
                 display: grid;
                 grid-template-columns: repeat(7, 225px) 50px;
-                border-radius: 10px;
                 width: max-content;
+                border-bottom: 1px solid white;
+                padding-bottom: 10px;
                 & p{
                     margin: 10px;
                     color: white;
@@ -67,30 +68,51 @@
 
                 }
             }
+        }
+        & .reportCaravanContainer{
+            overflow-y: scroll;
+            height: 75vh;
 
-            & .reportCard{
-                margin: 10px;
-                background-color: rgb(16, 16, 16);
+            &::-webkit-scrollbar {
+                width: 10px;
+
+            }
+            &::-webkit-scrollbar-track {
+                background: none;
+              }
+            &::-webkit-scrollbar-thumb {
+                background: rgb(0, 0, 0);
                 border-radius: 10px;
-                display: grid;
-                grid-template-columns: repeat(7, 225px) 50px;
-                border: 1px solid white;
-                align-items: center;
-                & p{
-                    color: white;
-                    padding: 10px;
-                    width: max-content;
-                    justify-self: center;
-                    &.dateContainer{
-                        display: flex;
+            }
+            &::-webkit-scrollbar-thumb:hover {
+                background: #555;
+            }
+
+            & .reportCardContainer{
+                & .reportCard{
+                    margin: 10px;
+                    background-color: rgb(16, 16, 16);
+                    border-radius: 10px;
+                    display: grid;
+                    grid-template-columns: repeat(7, 225px) 50px;
+                    border: 1px solid white;
+                    align-items: center;
+                    & p{
+                        color: white;
+                        padding: 10px;
+                        width: max-content;
+                        justify-self: center;
+                        &.dateContainer{
+                            display: flex;
+                        }
                     }
-                }
-                & .evidenceImageIcon{
-                    width: 25px;
-                    justify-self: center;
-                    cursor: pointer;
-                    &:active{
-                        transform: scale(.8);
+                    & .evidenceImageIcon{
+                        width: 25px;
+                        justify-self: center;
+                        cursor: pointer;
+                        &:active{
+                            transform: scale(.8);
+                        }
                     }
                 }
             }

@@ -15,6 +15,17 @@ const useHeader = ({setUser}) => {
         history.push('/')
     }
 
+    async function updateDB(){
+        axios.get(process.env.REACT_APP_API_PREFIX+"/api/archDB/getGuilds")
+        .then(function (res){
+            if(res.status === 200){
+                axios.get(process.env.REACT_APP_API_PREFIX+"/api/archDB/getPlayers")
+                console.log('API Called')
+            }
+        })
+
+    }
+
 
     useEffect(()=>{
         async function fetchData(){
@@ -29,7 +40,13 @@ const useHeader = ({setUser}) => {
                 }
             }).catch(function (error) {
                 console.log(error);
-                history.push('/')
+                if (process.env.REACT_APP_BUILD === "DEV"){
+                    setUser("Admin")
+                    history.push('/caravanreports')
+                }else{
+                    history.push('/')
+                }
+
             }
         )}
     fetchData()
@@ -37,7 +54,7 @@ const useHeader = ({setUser}) => {
 
 
 
-    return {logout}
+    return {logout, updateDB}
 }
 
 export default useHeader;

@@ -13,6 +13,7 @@ const useCaravanReports = () => {
     let guildArray = guildSearch ? reports.filter((report) => report.guild.toUpperCase().includes(guildSearch.toUpperCase())) : reports
     let array = playerSearch ? playerArray : guildArray
 
+
     useEffect(()=>{
         async function fetchData(){
             await axios.get(process.env.REACT_APP_API_PREFIX+"/api/caravan_report/caravanreports")

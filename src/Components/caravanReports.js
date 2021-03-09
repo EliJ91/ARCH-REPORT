@@ -30,9 +30,10 @@ function CaravanReports() {
             </div>
           </div>
           <div className="reportContainer">
-            <div className="reportCardContainer">
+            <div className="reportCardTitles">
                         <div className="title"> <p>USERNAME</p> <p >GUILD</p> <p>TYPE</p> <p>EVIDENCE</p> <p>FINE</p> <p>PAID</p> <p>DATE</p></div>
             </div>
+            <div className="reportCaravanContainer">
                 {array.sort(sortSpecific(sort)).map((report)=>(
                     <div className="reportCardContainer">
                         <div className="reportCard">
@@ -47,6 +48,7 @@ function CaravanReports() {
                         </div>
                     </div>
                 ))}
+            </div>
           </div>
       </div>
     </>
