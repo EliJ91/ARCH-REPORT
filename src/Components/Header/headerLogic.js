@@ -23,7 +23,17 @@ const useHeader = ({setUser}) => {
                 console.log('API Called')
             }
         })
+    }
 
+    async function test(username,guild){
+        await axios.post(process.env.REACT_APP_API_PREFIX+'/api/archDB/checkinfo', {
+            Name: username,
+            GuildName: guild
+        }).then(function (res){
+            console.log(res.data)
+        }).catch(function (err){
+            console.log(err.response.data)
+        })
     }
 
 
@@ -54,7 +64,7 @@ const useHeader = ({setUser}) => {
 
 
 
-    return {logout, updateDB}
+    return {logout, updateDB, test}
 }
 
 export default useHeader;
