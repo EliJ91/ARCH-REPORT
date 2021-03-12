@@ -41,7 +41,7 @@ const useHeader = ({setUser}) => {
                 history.push('/forbidden')
                 }else{
                 setUser(response.data.username)
-                history.push('/caravanreports')
+                history.push('/home')
                 }
             }).catch(function (error) {
                 console.log(error);
