@@ -71,7 +71,7 @@ const useLogin = ({setUser}) => {
         if(!response.data.approved){
           history.push('/forbidden')
         }else{
-          history.push('/caravanreports')
+          history.push('/home')
         }
 
       })
