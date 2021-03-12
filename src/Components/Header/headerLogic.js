@@ -52,7 +52,6 @@ const useHeader = ({setUser}) => {
                 console.log(error);
                 if (process.env.REACT_APP_BUILD === "DEV"){
                     setUser("Admin")
-                    history.push('/caravanreports')
                 }else{
                     history.push('/')
                 }

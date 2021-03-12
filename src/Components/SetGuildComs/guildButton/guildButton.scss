@@ -1,0 +1,22 @@
+.guildButton{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: grey;
+    color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+
+    &.selected{
+        background-color: green;
+    }
+
+    &:active{
+        transform: scale(0.9);
+    }
+
+}
