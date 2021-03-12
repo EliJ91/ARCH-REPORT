@@ -1,28 +1,21 @@
 import {useState, useEffect} from 'react'
 
 
-const useGuildButton = (currentGuilds, setCurrentGuilds,guild) => {
-    const [selected, setSelected] = useState(false)
+const useGuildButton = (currentGuilds, setCurrentGuilds) => {
 
-
-
-
-
-    async function addGuild(guild){
-        if(currentGuilds.includes(guild)){
-            let array = currentGuilds
+    function addGuild(guild){
+        const found = currentGuilds.find(element => element.Name === guild.Name);
+        if(found){
+            let array = [...currentGuilds]
             let index = array.indexOf(guild)
-            array.splice(index)
-            setCurrentGuilds(array, changeSelected())
+            array.splice(index, 1)
+            setCurrentGuilds(array)
         }else{
-            setCurrentGuilds(prevState => [...prevState, guild], changeSelected())
+            setCurrentGuilds(prevState => [...prevState, guild])
         }
     }
-    function changeSelected(){
-        setSelected(!selected)
-    }
 
-    return {selected, addGuild}
+    return {addGuild}
 }
 
 export default useGuildButton;

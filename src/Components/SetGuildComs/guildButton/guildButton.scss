@@ -1,5 +1,5 @@
 .guildButton{
-    width: fit-content;
+    width: 350px;
     margin-left: auto;
     margin-right: auto;
     background-color: grey;
@@ -12,7 +12,11 @@
     cursor: pointer;
 
     &.selected{
-        background-color: green;
+        background-color: green !important;
+        margin-left: 12px;
+        &:active{
+            transform: scale(0.9);
+        }
     }
 
     &:active{

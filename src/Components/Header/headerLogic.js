@@ -15,26 +15,21 @@ const useHeader = ({setUser}) => {
         history.push('/')
     }
 
-    async function updateDB(){
-        axios.get(process.env.REACT_APP_API_PREFIX+"/api/archDB/getGuilds")
-        .then(function (res){
-            if(res.status === 200){
-                axios.get(process.env.REACT_APP_API_PREFIX+"/api/archDB/getPlayers")
-                console.log('API Called')
-            }
-        })
+     function updateDB(){
+        let proceed = window.confirm("Are you sure you want to proceed?")
+        if(proceed){
+            axios.get(process.env.REACT_APP_API_PREFIX+"/api/archDB/getGuilds")
+            .then(function (res){
+                if(res.status === 200){
+                    axios.get(process.env.REACT_APP_API_PREFIX+"/api/archDB/getPlayers")
+                    console.log('API Called')
+                }
+            })
+            console.log("Updating Database")
+        }
+
     }
 
-    async function test(username,guild){
-        await axios.post(process.env.REACT_APP_API_PREFIX+'/api/archDB/checkinfo', {
-            Name: username,
-            GuildName: guild
-        }).then(function (res){
-            console.log(res.data)
-        }).catch(function (err){
-            console.log(err.response.data)
-        })
-    }
 
 
     useEffect(()=>{
@@ -51,7 +46,7 @@ const useHeader = ({setUser}) => {
             }).catch(function (error) {
                 console.log(error);
                 if (process.env.REACT_APP_BUILD === "DEV"){
-                    setUser("Admin")
+                    setUser("Dev")
                 }else{
                     history.push('/')
                 }
@@ -63,7 +58,7 @@ const useHeader = ({setUser}) => {
 
 
 
-    return {logout, updateDB, test}
+    return {logout, updateDB}
 }
 
 export default useHeader;
