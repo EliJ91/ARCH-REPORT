@@ -103,8 +103,17 @@ background: #333F48 !important;
 }
 
   @media only screen and (max-width: 600px) {
+    .guildComsMainTitle{
+        width: 40vw;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        color: white;
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
     .guildComsContainer{
-        width: 70vw;
+        width: 80vw;
         & .guildComsSelectedGuildsContainer{
             &::-webkit-scrollbar {
                 width: 5px;
