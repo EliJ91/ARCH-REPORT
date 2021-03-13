@@ -44,11 +44,11 @@ const useSetGuildComs = () => {
       await axios.post(process.env.REACT_APP_API_PREFIX+"/api/coms/set/guildcoms",{Guilds: currentGuilds
       })
       .then(function (res) {
-        toast("Ac & Co Guild List Saved!")
+        toast.success("Ac & Co Guild List Saved!")
         })
         .catch(function (err) {
           console.log(err);
-          toast("There was an error! Contact Onslawht!")
+          toast.error("There was an error! Contact Onslawht!")
         })
     }
 

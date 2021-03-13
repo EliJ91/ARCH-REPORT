@@ -1,5 +1,5 @@
 .guildButton{
-    width: 350px;
+    width: 14vw;
     margin-left: auto;
     margin-right: auto;
     background-color: grey;
@@ -13,7 +13,7 @@
 
     &.selected{
         background-color: green !important;
-        margin-left: 12px;
+        direction: ltr;
         &:active{
             transform: scale(0.9);
         }
@@ -24,3 +24,10 @@
     }
 
 }
+
+@media only screen and (max-width: 600px) {
+    .guildButton{
+        width: 29vw;
+        font-size: 8px;
+    }
+  }

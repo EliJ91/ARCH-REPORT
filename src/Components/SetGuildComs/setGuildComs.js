@@ -30,7 +30,8 @@ function SetGuildComs() {
     <ToastContainer
     progressClassName="toastProgress"
     bodyClassName="toastBody"
-    hideProgressBar={true}
+    className="toastContainer"
+    hideProgressBar={false}
     newestOnTop={true}
     closeOnClick
     />
