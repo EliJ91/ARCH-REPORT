@@ -134,7 +134,11 @@ background: #333F48 !important;
         }
     }
     .toastContainer{
-        width: fit-content !important;
+        min-height: 0 !important;
+        height: fit-content !important;
+        left: auto !important;
+        right: 1em!important;
+        top: 1em !important;
     }
     .toastBody {
         font-family: "Atlas Grotesk Web", Arial, Helvetica, sans-serif;
@@ -146,6 +150,10 @@ background: #333F48 !important;
     .guidComsSubTitle{
         color: white;
         font-size: 8px !important;
+    }
+
+    .Toastify__toast{
+        min-height: fit-content !important;
     }
 
   }
