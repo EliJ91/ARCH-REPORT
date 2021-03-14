@@ -19,6 +19,7 @@
 
 
     & .evidence{
+        z-index: 1;
         border: 2px solid white;
         border-radius: 10px;
         background-color: white;
@@ -43,6 +44,11 @@
             letter-spacing: 5px;
         }
     }
-
-
 }
+@media only screen and (max-width: 600px) {
+    .evidenceContainer{
+        & .evidence{margin-top: 250px;}
+        z-index: 1;
+    }
+}
+
