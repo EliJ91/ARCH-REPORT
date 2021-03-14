@@ -38,6 +38,8 @@
 
 @media only screen and (max-width: 600px) {
     .headerContainer{
+        margin-left: auto;
+        margin-right: 5px;
         & .userLogged{
             font-size: 12px;
         }

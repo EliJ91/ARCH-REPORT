@@ -31,7 +31,7 @@ function CaravanReports() {
           </div>
           <div className="reportContainer">
             <div className="reportCardTitles">
-                        <div className="title"> <p>USERNAME</p> <p >GUILD</p> <p>TYPE</p> <p>EVIDENCE</p> <p>FINE</p> <p>PAID</p> <p>DATE</p></div>
+                        <div className="title"> <p>USERNAME</p> <p >GUILD</p> <p>EVIDENCE</p> <p>FINE</p> <p>PAID</p> <p>DATE</p></div>
             </div>
             <div className="reportCaravanContainer">
                 {array.sort(sortSpecific(sort)).map((report)=>(
@@ -39,7 +39,6 @@ function CaravanReports() {
                         <div className="reportCard">
                           <p >{report.username}</p>
                           <p>{report.guild}</p>
-                          <p>{report.type}</p>
                           <Evidence URL={report.image} />
                           <UpdateFine  fine={report.fine} id={report._id} update={updateFine}/>
                           <PaidButton paid={report.paid} id={report._id} update={updatePaid}/>

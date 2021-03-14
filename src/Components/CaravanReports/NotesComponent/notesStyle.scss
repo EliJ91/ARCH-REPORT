@@ -64,6 +64,13 @@
 }
 
 @media only screen and (max-width: 600px) {
+    .notesButton{
+        & .notesIcon{
+            width: 15px;
+        }
+        &.no-notes{
+        }
+    }
     .notesContainer{
         position: absolute;
         left: 2.5%;
