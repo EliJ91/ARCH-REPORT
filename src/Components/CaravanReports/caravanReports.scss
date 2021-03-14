@@ -5,7 +5,7 @@
     margin-right: auto;
     position: relative;
     & .offenceCount{
-        width: 200px;
+        width: fit-content;
         float: left;
         border-radius: 10px;
         text-align: center;
@@ -50,12 +50,12 @@
 
     & .reportContainer{
         & .reportCardTitles{
+            border-bottom: 1px solid white;
+            margin-right: 10px;
             & .title{
                 margin: 10px;
                 display: grid;
                 grid-template-columns: repeat(7, 225px) 50px;
-                width: max-content;
-                border-bottom: 1px solid white;
                 padding-bottom: 10px;
                 & p{
                     margin: 10px;
@@ -119,9 +119,9 @@
         }
     }
 }
-.Button{
+.fineContainer{
     display: flex;
-    & button{
+    & .fineSaveButton{
         display: block;
         border: 1px solid grey;
         background-color: green;
@@ -137,9 +137,7 @@
     & input{
         color: white;
         padding: 10px;
-        margin-left: 50px;
         width: fit-content;
-        max-width: 100px;
         justify-self: center;
         background-color: rgb(16, 16, 16);
         border: none;
@@ -181,10 +179,94 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-@media screen and (max-width: 600px) {
-    .reportCardContainer {
-      & .reportCard{
-
-      }
+@media only screen and (max-width: 600px) {
+    .caravanReportsContainer{
+        & .offenceCount{
+            font-size: 10px;
+            width: fit-content;
+        }
+        & .searchContainers{
+            & .caravanReportsSearchQueries{
+                width: fit-content;
+                & .ascendingIcon{
+                    font-size: 10px;
+                }
+                & .searchInput{
+                    width: 75px;
+                    &::placeholder{
+                        font-size: 10px;
+                    }
+                }
+                & .caravanReportsSort{
+                    width: 50px;
+                }
+            }
+        }
+        & .reportContainer{
+            & .reportCardTitles{
+                & .title{
+                    width: fit-content;
+                    margin: 0;
+                    grid-template-columns: repeat(7, 50px) 50px;
+                    & p{
+                        letter-spacing: 0;
+                        font-size: 10px;
+                    }
+                }
+            }
+            & .reportCaravanContainer{
+                width: fit-content;
+                &::-webkit-scrollbar {
+                }
+                &::-webkit-scrollbar-track {
+                  }
+                &::-webkit-scrollbar-thumb {
+                }
+                &::-webkit-scrollbar-thumb:hover {
+                }
+                & .reportCardContainer{
+                    & .reportCard{
+                        width: fit-content;
+                        grid-template-columns: repeat(7, 50px) 50px;
+                        & p{
+                            letter-spacing: 0;
+                            width: fit-content;
+                            font-size: 8px;
+                            &.dateContainer{
+                                font-size: 10px;
+                            }
+                        }
+                        & .evidenceImageIcon{
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .fineContainer{
+        display: block;
+        & .fineSaveButton{
+            font-size: 10px;
+            margin-left: 0;
+            width: fit-content;
+            letter-spacing: 0;
+        }
+        & input{
+            padding: 0;
+            max-width: 40px;
+            font-size: 10px;
+        }
+    }
+    .paidButton{
+            & .paid{
+                letter-spacing: 0;
+                width: fit-content;
+                font-size: 10px;
+            }
+            & .unpaid{
+                letter-spacing: 0;
+                width: fit-content;
+                font-size: 10px;
+            }
     }
   }

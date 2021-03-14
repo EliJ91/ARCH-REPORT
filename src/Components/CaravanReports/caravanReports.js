@@ -1,7 +1,7 @@
 import useCaravanReports from './caravanReportsLogic'
 import './caravanReports.scss'
 import React,{useState} from 'react'
-import SaveButton from './ButtonComponent/saveButton'
+import UpdateFine from './UpdateFine/updateFine'
 import Evidence from './EvidenceComponent/evidenceComponent'
 import PaidButton from './PaidButtonComponent/paidButton'
 import Notes from './NotesComponent/notesComponent'
@@ -41,7 +41,7 @@ function CaravanReports() {
                           <p>{report.guild}</p>
                           <p>{report.type}</p>
                           <Evidence URL={report.image} />
-                          <SaveButton  fine={report.fine} id={report._id} update={updateFine}/>
+                          <UpdateFine  fine={report.fine} id={report._id} update={updateFine}/>
                           <PaidButton paid={report.paid} id={report._id} update={updatePaid}/>
                           <p className="dateContainer"> {new Date(report.date).toLocaleDateString("en-US")}</p>
                           <Notes notes={report.notes} id={report._id} update={updateNotes}/>

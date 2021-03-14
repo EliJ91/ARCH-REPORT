@@ -19,7 +19,9 @@
 
     & .headerLinkContainer{
         display: flex;
-        justify-content: center;
+        width: fit-content;
+        margin-right: auto;
+        margin-left: auto;
         gap: 5px;
         margin-bottom: 10px;
         & .headerLink{
@@ -32,4 +34,19 @@
         }
     }
 
+}
+
+@media only screen and (max-width: 600px) {
+    .headerContainer{
+        & .userLogged{
+            font-size: 12px;
+        }
+
+        & .headerLinkContainer{
+            & .headerLink{
+                font-size: 10px;
+            }
+        }
+
+    }
 }

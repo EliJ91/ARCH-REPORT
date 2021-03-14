@@ -2,7 +2,7 @@ import {useState} from 'react'
 import '../caravanReports.scss'
 
 
-function SaveButton({fine,id,update}){
+function UpdateFine({fine,id,update}){
     const [hide, setHide] = useState(true)
     const [newFine, setNewFine] = useState(fine)
 
@@ -12,11 +12,11 @@ function SaveButton({fine,id,update}){
     }
 
   return (
-    <div className="Button">
+    <div className="fineContainer">
         <input onClick={()=>setHide(false)} type="number" placeholder={newFine.toLocaleString()} onChange={(e)=>setNewFine(e.target.value)}/>
-        <button className={hide && "hide"} onClick={()=>save()}>SAVE</button>
+        <button className={`fineSaveButton ${hide && "hide"}`} onClick={()=>save()}>SAVE</button>
     </div>
   );
 }
 
-export default SaveButton;
+export default UpdateFine;

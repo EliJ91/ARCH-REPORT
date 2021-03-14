@@ -1,4 +1,4 @@
-import CaravanReports from './Components/caravanReports'
+import CaravanReports from './Components/CaravanReports/caravanReports'
 import Login from './Components/LoginPage/loginPage'
 import Header from './Components/Header/header'
 import UnapprovedAccount from './Components/UnapprovedAccount/unapprovedAccount'
