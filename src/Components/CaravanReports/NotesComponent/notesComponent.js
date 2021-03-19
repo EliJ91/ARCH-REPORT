@@ -18,15 +18,13 @@ function Notes({notes, id, setReports}){
     }
 
   return (
-      <div>
+      <div className="notesMainContainer">
         <button title="Notes" className={`notesButton ${notes==="" && "no-notes"}`}><CommentIcon onClick={()=>setHide(!hide)} className="notesIcon"/></button>
         <div className={`notesContainer ${hide ? "hide" : "show"}`}>
             <textarea className="notesTextarea" value={note} onChange={(e)=>setNote(e.target.value)}/>
             <button className="notesSaveButton" onClick={()=>updateNotes(note, id)} >Save</button>
         </div>
-
-
-    </div>
+      </div>
   );
 }
 

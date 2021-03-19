@@ -54,7 +54,6 @@
             margin-right: 10px;
             & .title{
                 margin: 10px;
-               // margin-left: 50px;
                 display: grid;
                 grid-template-columns: 50px repeat(6, 225px) 50px;
                 padding-bottom: 10px;
@@ -151,7 +150,7 @@
     }
 }
 
-.paidButton{
+.paidButtonContainer{
     width: fit-content;
     justify-self: center;
     cursor: pointer;
@@ -182,6 +181,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 @media only screen and (max-width: 600px) {
     .caravanReportsContainer{
+        width: 99vw;
         & .offenceCount{
             font-size: 10px;
             width: fit-content;
@@ -206,6 +206,7 @@ input[type=number]::-webkit-outer-spin-button {
         }
         & .reportContainer{
             & .reportCardTitles{
+                display: none;
                 & .title{
                     width: fit-content;
                     margin: 0;
@@ -217,7 +218,7 @@ input[type=number]::-webkit-outer-spin-button {
                 }
             }
             & .reportCaravanContainer{
-                width: fit-content;
+                width: auto;
                 &::-webkit-scrollbar {
                 }
                 &::-webkit-scrollbar-track {
@@ -260,7 +261,7 @@ input[type=number]::-webkit-outer-spin-button {
             font-size: 10px;
         }
     }
-    .paidButton{
+    .paidButtonContainer{
             & .paid{
                 letter-spacing: 0;
                 width: fit-content;

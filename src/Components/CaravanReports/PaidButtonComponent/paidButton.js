@@ -16,7 +16,7 @@ function PaidButton({paid,id,setReports}){
   }
 
   return (
-    <div className="paidButton">
+    <div className="paidButtonContainer">
         <button className={paid? "paid" : "unpaid"} onClick={()=>updatePaid(!paid, id)}>{paid ? "PAID" : "UNPAID"}</button>
     </div>
   );

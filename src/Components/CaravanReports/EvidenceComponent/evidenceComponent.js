@@ -5,16 +5,15 @@ import {useState} from 'react'
 function Evidence({URL}){
     const [evidence, setEvidence] = useState(false)
   return (
-      <>
+    <div className="evidenceMainContainer">
       <img className="evidenceImageIcon" onClick={()=>setEvidence(true)} src={photoImage} alt=""/>
       <div className={`evidenceContainer  ${evidence ? "show" : "hide"}`} onClick={()=>setEvidence(false)}>
           <div className="evidence">
               <img src={URL} alt=""/>
               <span>CLICK ANYWHERE TO CLOSE</span>
           </div>
-
       </div>
-    </>
+    </div>
   );
 }
 

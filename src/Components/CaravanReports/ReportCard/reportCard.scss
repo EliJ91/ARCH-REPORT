@@ -12,72 +12,62 @@
         padding: 10px;
         width: max-content;
         justify-self: center;
-        &.dateContainer{
-            display: flex;
-        }
-    }
-    & .evidenceImageIcon{
-        width: 25px;
-        justify-self: center;
-        cursor: pointer;
-        &:active{
-            transform: scale(.8);
-        }
+        font-family: 'Anton', sans-serif;
     }
 }
 
-.fineContainer{
-    display: flex;
-    & .fineSaveButton{
-        display: block;
-        border: 1px solid grey;
-        background-color: green;
-        margin-left: 30px;
-        max-height: 20px;
-        font-weight: bold;
-        margin-top: 8px;
-        letter-spacing: 3px;
-        &.hide{
-            display: none;
-        }
-    }
-    & input{
-        color: white;
-        padding: 10px;
-        width: fit-content;
-        justify-self: center;
-        background-color: rgb(16, 16, 16);
-        border: none;
-        text-align: center;
-        color: white;
-        outline: none;
-        &::placeholder {
-            color: white;
-        }
-    }
-}
+// .fineContainer{
+//     display: flex;
+//     & .fineSaveButton{
+//         display: block;
+//         border: 1px solid grey;
+//         background-color: green;
+//         margin-left: 30px;
+//         max-height: 20px;
+//         font-weight: bold;
+//         margin-top: 8px;
+//         letter-spacing: 3px;
+//         &.hide{
+//             display: none;
+//         }
+//     }
+//     & input{
+//         color: white;
+//         padding: 10px;
+//         width: fit-content;
+//         justify-self: center;
+//         background-color: rgb(16, 16, 16);
+//         border: none;
+//         text-align: center;
+//         color: white;
+//         outline: none;
+//         &::placeholder {
+//             color: white;
+//         }
+//     }
+// }
 
-.paidButton{
-    width: fit-content;
-    justify-self: center;
-    cursor: pointer;
-    color: black;
-    letter-spacing: 3px;
-    font-weight: bold;
-        &:active{
-            transform: scale(.8);
-        }
-        & .paid{
-            background-color: green;
-            border-radius: 10px;
-            outline: none;
-        }
-        & .unpaid{
-            background-color: red;
-            border-radius: 10px;
-            outline: none;
-        }
-}
+// .paidButton{
+//     width: fit-content;
+//     justify-self: center;
+//     cursor: pointer;
+//     color: black;
+//     letter-spacing: 3px;
+//     font-weight: bold;
+//         &:active{
+//             transform: scale(.8);
+//         }
+//         & .paid{
+//             background-color: green;
+//             border-radius: 10px;
+//             outline: none;
+//         }
+//         & .unpaid{
+//             background-color: red;
+//             border-radius: 10px;
+//             outline: none;
+//         }
+// }
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -85,97 +75,45 @@ input[type=number]::-webkit-outer-spin-button {
     appearance: none;
     margin: 0;
 }
-
+//----------------------------------------------------------------------------------------------------------------------//
 @media only screen and (max-width: 600px) {
-    .caravanReportsContainer{
-        & .offenceCount{
-            font-size: 10px;
-            width: fit-content;
-        }
-        & .searchContainers{
-            & .caravanReportsSearchQueries{
-                width: fit-content;
-                margin-right: auto;
-                & .ascendingIcon{
-                    font-size: 10px;
-                }
-                & .searchInput{
-                    width: 75px;
-                    &::placeholder{
-                        font-size: 10px;
-                    }
-                }
-                & .caravanReportsSort{
-                    width: 50px;
-                }
-            }
-        }
-        & .reportContainer{
-            & .reportCardTitles{
-                & .title{
-                    width: fit-content;
-                    margin: 0;
-                    grid-template-columns: repeat(6, 50px) 25px;
-                    & p{
-                        letter-spacing: 0;
-                        font-size: 10px;
-                    }
-                }
-            }
-            & .reportCaravanContainer{
-                width: fit-content;
-                &::-webkit-scrollbar {
-                }
-                &::-webkit-scrollbar-track {
-                  }
-                &::-webkit-scrollbar-thumb {
-                }
-                &::-webkit-scrollbar-thumb:hover {
-                }
-                & .reportCardContainer{
-                    & .reportCard{
-                        margin: 10px 0 10px 0;
-                        width: fit-content;
-                        grid-template-columns: repeat(6, 50px) 25px;
-                        & p{
-                            letter-spacing: 0;
-                            width: fit-content;
-                            font-size: 8px;
-                            &.dateContainer{
-                                font-size: 10px;
-                            }
-                        }
-                        & .evidenceImageIcon{
-                        }
-                    }
-                }
-            }
-        }
+    .reportCardUsername{
+        grid-area: Username;
+        margin: 0;
+        padding: 0 !important;
+    }
+    .reportCardGuild{
+        color: rgb(146, 55, 146) !important;
+        grid-area: Guild;
+        margin: 0;
+        padding: 0 !important;
     }
     .fineContainer{
-        display: block;
-        & .fineSaveButton{
-            font-size: 10px;
-            margin-left: 0;
-            width: fit-content;
-            letter-spacing: 0;
-        }
-        & input{
-            padding: 0;
-            max-width: 40px;
-            font-size: 10px;
-        }
+        grid-area: Fine;
+        text-align: center;
     }
-    .paidButton{
-            & .paid{
-                letter-spacing: 0;
-                width: fit-content;
-                font-size: 10px;
-            }
-            & .unpaid{
-                letter-spacing: 0;
-                width: fit-content;
-                font-size: 10px;
-            }
+    .paidButtonContainer{grid-area: Paid;}
+    .reportCardDate{
+        grid-area: Date;
+        display: none;}
+    .notesMainContainer{grid-area: Notes;
+        width: 100%;}
+    .evidenceMainContainer{
+        grid-area: Evidence;
+        text-align: center;
     }
-  }
+    .caravanReportCard{
+        position: relative;
+        margin: 10px;
+        background-color: rgb(16, 16, 16);
+        border-radius: 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas:
+            "Username Username Username"
+            "Guild Guild Guild"
+            "Fine Paid Evidence "
+            "Notes Notes Notes"
+        ;
+    }
+}
