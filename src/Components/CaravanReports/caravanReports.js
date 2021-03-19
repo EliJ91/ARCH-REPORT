@@ -5,9 +5,10 @@ import UpdateFine from './UpdateFine/updateFine'
 import Evidence from './EvidenceComponent/evidenceComponent'
 import PaidButton from './PaidButtonComponent/paidButton'
 import Notes from './NotesComponent/notesComponent'
+import ReportCard from './ReportCard/reportCard'
 
 function CaravanReports() {
-    const {array,setPlayerSearch,setGuildSearch,updatePaid,updateFine,updateNotes,sortSpecific,sort,setSort,ascending,setAscending} = useCaravanReports()
+    const {array,setPlayerSearch,setGuildSearch,updatePaid,updateFine,updateNotes,sortSpecific,sort,setSort,ascending,setAscending,setReports} = useCaravanReports()
 
     return (
     <>
@@ -31,20 +32,22 @@ function CaravanReports() {
           </div>
           <div className="reportContainer">
             <div className="reportCardTitles">
-                        <div className="title"> <p>USERNAME</p> <p >GUILD</p> <p>EVIDENCE</p> <p>FINE</p> <p>PAID</p> <p>DATE</p></div>
+                        <div className="title"> <div>&nbsp;</div> <p>USERNAME</p> <p >GUILD</p> <p>IMAGE</p> <p>FINE</p> <p>PAID</p> <p>DATE</p></div>
             </div>
             <div className="reportCaravanContainer">
                 {array.sort(sortSpecific(sort)).map((report)=>(
                     <div className="reportCardContainer">
-                        <div className="reportCard">
-                          <p >{report.username}</p>
-                          <p>{report.guild}</p>
-                          <Evidence URL={report.image} />
-                          <UpdateFine  fine={report.fine} id={report._id} update={updateFine}/>
-                          <PaidButton paid={report.paid} id={report._id} update={updatePaid}/>
-                          <p className="dateContainer"> {new Date(report.date).toLocaleDateString("en-US")}</p>
-                          <Notes notes={report.notes} id={report._id} update={updateNotes}/>
-                        </div>
+                      <ReportCard
+                      username={report.username}
+                      guild={report.guild}
+                      image={report.image}
+                      fine={report.fine}
+                      paid={report.paid}
+                      id={report._id}
+                      date={report.date}
+                      notes={report.notes}
+                      setReports={setReports}
+                      />
                     </div>
                 ))}
             </div>

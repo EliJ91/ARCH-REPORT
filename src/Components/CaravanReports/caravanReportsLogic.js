@@ -28,38 +28,6 @@ const useCaravanReports = () => {
         fetchData()
     },[])
 
-    async function updatePaid(value,id){
-      await axios.get(process.env.REACT_APP_API_PREFIX+"/api/caravan_report/updatepaid",{ params: { value, id }})
-      .then(function (response) {
-          setReports(response.data[0])
-          console.log(response)
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-
-    async function updateFine(value,id){
-      await axios.get(process.env.REACT_APP_API_PREFIX+"/caravan_report/updatefine",{ params: { value, id }})
-      .then(function (response) {
-          setReports(response.data[0])
-          console.log(response)
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-
-    async function updateNotes(value,id){
-      await axios.get(process.env.REACT_APP_API_PREFIX+"/api/caravan_report/updatenote",{ params: { value, id }})
-      .then(function (response) {
-          setReports(response.data[0])
-          console.log(response)
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
 
 
 
@@ -69,7 +37,7 @@ const useCaravanReports = () => {
 
 
 
-    return {array,setPlayerSearch,setGuildSearch,playerSearch,updatePaid,updateFine,updateNotes,sortSpecific,sort,setSort,ascending,setAscending}
+    return {setReports, array,setPlayerSearch,setGuildSearch,playerSearch,sortSpecific,sort,setSort,ascending,setAscending}
 }
 
 export default useCaravanReports;

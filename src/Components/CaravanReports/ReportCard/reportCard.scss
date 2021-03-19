@@ -1,125 +1,31 @@
-.caravanReportsContainer{
-    width: fit-content;
-    height: 90vh;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    & .offenceCount{
-        width: fit-content;
-        text-align: center;
-        border-radius: 10px;
-        text-align: center;
+
+.caravanReportCard{
+    margin: 10px;
+    background-color: rgb(16, 16, 16);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 50px repeat(6, 225px) 50px;
+    border: 1px solid white;
+    align-items: center;
+    & p{
         color: white;
-    }
-
-    & .searchContainers{
-        display: flex;
-
-        & .caravanReportsSearchQueries{
-            margin-left: auto;
+        padding: 10px;
+        width: max-content;
+        justify-self: center;
+        &.dateContainer{
             display: flex;
-            flex-direction: row-reverse;
-            align-items: center;
-            margin-right: 20px;
-
-            & .ascendingIcon{
-                color: white;
-                margin-left: 5px;
-                padding: 3px;
-                background-color: grey;
-                border: 1px solid black;
-                border-radius: 5px;
-                cursor: pointer;
-
-                &:active{
-                    transform: scale(.9);
-                }
-            }
-
-            & .searchInput{
-                margin: 10px;
-                height: min-content;
-                background-color: none;
-            }
-
-            & .caravanReportsSort{
-                height: min-content;
-            }
         }
     }
-
-    & .reportContainer{
-        & .reportCardTitles{
-            border-bottom: 1px solid white;
-            margin-right: 10px;
-            & .title{
-                margin: 10px;
-               // margin-left: 50px;
-                display: grid;
-                grid-template-columns: 50px repeat(6, 225px) 50px;
-                padding-bottom: 10px;
-                & p{
-                    margin: 10px;
-                    color: white;
-                    width: max-content;
-                    padding: 10px;
-                    font-weight: bold;
-                    letter-spacing: 10px;
-                    justify-self: center;
-
-                }
-            }
-        }
-        & .reportCaravanContainer{
-            overflow-y: scroll;
-            height: 75vh;
-
-            &::-webkit-scrollbar {
-                width: 10px;
-
-            }
-            &::-webkit-scrollbar-track {
-                background: none;
-              }
-            &::-webkit-scrollbar-thumb {
-                background: rgb(0, 0, 0);
-                border-radius: 10px;
-            }
-            &::-webkit-scrollbar-thumb:hover {
-                background: #555;
-            }
-
-            & .reportCardContainer{
-                & .reportCard{
-                    margin: 10px;
-                    background-color: rgb(16, 16, 16);
-                    border-radius: 10px;
-                    display: grid;
-                    grid-template-columns: repeat(6, 225px) 50px;
-                    border: 1px solid white;
-                    align-items: center;
-                    & p{
-                        color: white;
-                        padding: 10px;
-                        width: max-content;
-                        justify-self: center;
-                        &.dateContainer{
-                            display: flex;
-                        }
-                    }
-                    & .evidenceImageIcon{
-                        width: 25px;
-                        justify-self: center;
-                        cursor: pointer;
-                        &:active{
-                            transform: scale(.8);
-                        }
-                    }
-                }
-            }
+    & .evidenceImageIcon{
+        width: 25px;
+        justify-self: center;
+        cursor: pointer;
+        &:active{
+            transform: scale(.8);
         }
     }
 }
+
 .fineContainer{
     display: flex;
     & .fineSaveButton{
